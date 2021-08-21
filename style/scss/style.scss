@@ -1,0 +1,291 @@
+@import "_reset.scss";
+
+@media screen {
+  // 페이지
+  $페이지높이: 70.157rem;
+  $페이지너비: $페이지높이 * 0.708;
+
+  // 마진
+  $마진위아래: 0.5rem;
+  $마진양옆: 0.75rem;
+
+  // 패딩
+  $패딩위아래: 0.5rem;
+  $패딩양옆: 0.85rem;
+
+  // 둘레
+  $radius: 0.25rem;
+
+  // 색상
+  $화이트: #ffffff;
+  $진한화이트: #eee;
+  $레드: #ff0000;
+
+  header {
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+
+  header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+
+    .document {
+      border: 1px solid black;
+      width: $페이지너비;
+      height: $페이지높이;
+      overflow: scroll;
+
+      .page-items {
+        position: relative;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        .page-item {
+          margin-bottom: $페이지높이 * 0.1597;
+
+          .container {
+            position: relative;
+            cursor: ns-resize;
+            width: 100%;
+            height: 1px;
+
+            .removeBtn {
+              position: absolute;
+              border: none;
+              top: -10px;
+              right: -10px;
+              font-size: $페이지너비 * 0.06;
+              cursor: pointer;
+              background: transparent;
+              z-index: 200;
+            }
+
+            .page-item__body {
+              .image {
+                height: $페이지높이 * 0.1597;
+              }
+              .image__holder {
+                position: relative;
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .dialog {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid black;
+      background-color: white;
+      width: 50%;
+      z-index: 1000;
+
+      .dialog-container {
+        margin: $마진위아래 $마진양옆;
+        padding: $패딩위아래 * 0.625;
+        text-align: center;
+
+        .upload-hidden {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          border: 0;
+        }
+
+        %a {
+          display: inline-block;
+          padding: $패딩위아래 $패딩양옆;
+          font-size: inherit;
+          line-height: normal;
+          vertical-align: middle;
+          background-color: #f5f5f5;
+          border: 1px solid #ebebeb;
+          border-bottom-color: #e2e2e2;
+          border-radius: $radius;
+          // height: 2.237rem;
+          padding: $패딩위아래 $패딩양옆;
+        }
+
+        .dialog-uploader {
+          display: flex;
+          flex-direction: column;
+          .upload-file__buttons {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .upload-file__lists {
+            @extend %a;
+            -webkit-appearance: none; /* 네이티브 외형 감추기 */
+            -moz-appearance: none;
+            appearance: none;
+            overflow-y: scroll;
+            height: 20rem;
+            text-align: left;
+            list-style: none;
+            font-size: 24px;
+            .upload-file__list {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+
+          .upload-file__add {
+            @extend %a;
+            background-color: #fdfdfd;
+            color: #999;
+            cursor: pointer;
+          }
+          .upload-file__delete {
+            @extend .upload-file__add;
+          }
+
+          .upload-file__count {
+            margin: $마진위아래;
+            text-align: left;
+          }
+        }
+
+        progress {
+          /*기본 배경은 없애주는게 좋습니다*/
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background: $화이트;
+          margin-top: 5px;
+          /* IE10 호환성용 */
+          color: $레드;
+          width: 100%;
+          transition: all 300ms ease;
+        }
+        progress::-webkit-progress-bar {
+          background-color: $진한화이트;
+          border-radius: $radius / 2;
+        }
+        progress::-webkit-progress-value {
+          background-color: $레드;
+          border-radius: $radius / 2;
+        }
+
+        /*파이어폭스 호환성을 위해*/
+        progress::-moz-progress-bar {
+          background-color: $레드;
+          border-radius: $radius / 2;
+        }
+
+        .dialog-buttons {
+          display: flex;
+          justify-content: space-around;
+          button {
+            border-radius: $radius;
+            border: none;
+            padding: $패딩위아래 $패딩양옆;
+            background: $화이트;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+@page {
+  // size: A4;
+  margin: 0;
+}
+
+@media print {
+  // 페이지
+  $페이지높이: 70.157rem;
+  $페이지너비: $페이지높이 * 0.708;
+
+  // 마진
+  $마진위아래: 0.5rem;
+  $마진양옆: 0.75rem;
+
+  // 패딩
+  $패딩위아래: 0.5rem;
+  $패딩양옆: 0.85rem;
+
+  // 둘레
+  $radius: 0.25rem;
+
+  // 색상
+  $화이트: #ffffff;
+  $진한화이트: #eee;
+  $레드: #ff0000;
+
+  header,
+  .no-print {
+    display: none;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  img {
+    max-width: 500px;
+  }
+
+  .document {
+    width: $페이지너비;
+    height: $페이지높이;
+
+    .page-items {
+      position: relative;
+      padding: 0;
+      list-style: none;
+
+      .page-item {
+        margin-bottom: $페이지높이 * 0.1597;
+
+        .container {
+          position: relative;
+          border: none;
+          width: 100%;
+          height: 1px;
+
+          .page-item__body {
+            .image {
+              height: $페이지높이 * 0.1597;
+              .image__holder {
+                position: relative;
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

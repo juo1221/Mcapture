@@ -23,6 +23,10 @@ class App {
         }
       });
     });
+    const printBtn = document.querySelector(".print")! as HTMLButtonElement;
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
   }
 }
 new App(document.querySelector(".page")! as HTMLElement);

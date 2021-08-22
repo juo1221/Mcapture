@@ -1,0 +1,398 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+@media screen {
+  body .page-break-after__selected {
+    border-bottom: 5px solid blue;
+    margin-bottom: 5px;
+  }
+
+  header {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100vh;
+  }
+  header h1 {
+    margin-bottom: 0;
+  }
+  header .start {
+    background-color: #4f5165;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #ffffff;
+    margin-top: 0.5rem;
+  }
+  header .start:active {
+    -webkit-transform: scale(0.95) translateY(1px);
+            transform: scale(0.95) translateY(1px);
+  }
+
+  .main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .main .printSetting {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border: 5px dashed #e8a02b;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .main .printSetting .imagePerpage {
+    width: 2rem;
+    text-align: center;
+  }
+  .main .printSetting .print {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 0.5rem 0.85rem;
+    cursor: pointer;
+    margin: 1.5rem;
+  }
+  .main .printSetting .print:active {
+    -webkit-transform: scale(0.95) translateY(1px);
+            transform: scale(0.95) translateY(1px);
+  }
+  .main .document::before {
+    display: block;
+    width: 1px;
+    height: 66.8161904762rem;
+    background: black;
+    content: "";
+    position: absolute;
+    top: 14.5rem;
+    left: 50%;
+  }
+  .main .document {
+    border: 1px solid black;
+    width: 49.671156rem;
+    height: 70.157rem;
+    overflow: scroll;
+  }
+  .main .document .page-items {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .main .document .page-items .page-break-after:nth-of-type(even) .dragging__leftRight {
+    left: 415px !important;
+  }
+  .main .document .page-items .page-break-after:nth-of-type(even) {
+    height: 11.2040729rem;
+    position: relative;
+    top: -11.64255415rem;
+    z-index: 100;
+  }
+  .main .document .page-items .page-break-after:nth-of-type(even) #resize {
+    border-bottom: 1px dashed #f69104;
+  }
+  .main .document .page-items .page-break-after:nth-of-type(odd) #resize {
+    border-bottom: 1px dashed #4aab00;
+  }
+  .main .document .page-items .page-item {
+    border-top: 0.43848125rem solid salmon;
+    margin-bottom: 11.2040729rem;
+    cursor: ns-resize;
+    position: relative;
+    width: 100%;
+    height: 1px;
+  }
+  .main .document .page-items .page-item .container .removeBtn {
+    position: absolute;
+    border: none;
+    top: -10px;
+    right: -10px;
+    font-size: 2.98026936rem;
+    cursor: pointer;
+    background: transparent;
+    z-index: 200;
+  }
+  .main .document .page-items .page-item .container .removeBtn:hover {
+    color: #ff0000;
+  }
+  .main .document .page-items .page-item .container .moveBtn {
+    position: absolute;
+    border: none;
+    top: 60px;
+    right: -10px;
+    font-size: 1.98684624rem;
+    cursor: pointer;
+    background: transparent;
+    z-index: 200;
+  }
+  .main .document .page-items .page-item .container .moveBtn:hover {
+    color: #ff0000;
+  }
+  .main .document .page-items .page-item .container .page-item__body .image {
+    height: 11.2040729rem;
+  }
+  .main .document .page-items .page-item .container .page-item__body .image__holder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .main .document .page-items .page-item .container .page-item__body .image__holder #resize {
+    position: relative;
+    resize: vertical;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+  }
+  .main .document .page-items .page-item .container .page-item__body .image__holder #resize .dragging__leftRight {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 45%;
+    height: 100%;
+    cursor: ew-resize;
+    z-index: 100;
+  }
+  .main .document .page-items .page-item .container .page-item__body .image__holder #resize .dragging__leftRight .image__thumbnail {
+    width: 100%;
+    height: 100%;
+  }
+  .main .dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    border: 1px solid black;
+    background-color: white;
+    width: 50%;
+    z-index: 1000;
+  }
+  .main .dialog .dialog-container {
+    margin: 0.5rem 0.75rem;
+    padding: 0.3125rem;
+    text-align: center;
+    /*파이어폭스 호환성을 위해*/
+  }
+  .main .dialog .dialog-container .upload-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  .main .dialog .dialog-container .dialog-uploader .upload-file__lists, .main .dialog .dialog-container .dialog-uploader .upload-file__add, .main .dialog .dialog-container .dialog-uploader .upload-file__delete {
+    display: inline-block;
+    padding: 0.5rem 0.85rem;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.85rem;
+  }
+  .main .dialog .dialog-container .dialog-uploader {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .main .dialog .dialog-container .dialog-uploader .upload-file__buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .main .dialog .dialog-container .dialog-uploader .upload-file__lists {
+    -webkit-appearance: none;
+    /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+    overflow-y: scroll;
+    height: 20rem;
+    text-align: left;
+    list-style: none;
+    font-size: 24px;
+  }
+  .main .dialog .dialog-container .dialog-uploader .upload-file__lists .upload-file__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .main .dialog .dialog-container .dialog-uploader .upload-file__add, .main .dialog .dialog-container .dialog-uploader .upload-file__delete {
+    background-color: #fdfdfd;
+    color: #999;
+    cursor: pointer;
+  }
+  .main .dialog .dialog-container .dialog-uploader .upload-file__count {
+    margin: 0.5rem;
+    text-align: left;
+  }
+  .main .dialog .dialog-container progress {
+    /*기본 배경은 없애주는게 좋습니다*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #ffffff;
+    margin-top: 5px;
+    /* IE10 호환성용 */
+    color: #ff0000;
+    width: 100%;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+  }
+  .main .dialog .dialog-container progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 0.125rem;
+  }
+  .main .dialog .dialog-container progress::-webkit-progress-value {
+    background-color: #ff0000;
+    border-radius: 0.125rem;
+  }
+  .main .dialog .dialog-container progress::-moz-progress-bar {
+    background-color: #ff0000;
+    border-radius: 0.125rem;
+  }
+  .main .dialog .dialog-container .dialog-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .main .dialog .dialog-container .dialog-buttons button {
+    border-radius: 0.25rem;
+    border: none;
+    padding: 0.5rem 0.85rem;
+    background: #ffffff;
+    cursor: pointer;
+  }
+}
+@page {
+  margin: 0;
+}
+@media print {
+  .page-break-after__selected {
+    border: none;
+    display: block;
+    page-break-after: always;
+  }
+
+  header,
+  .no-print {
+    display: none;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  img {
+    max-width: 500px;
+  }
+
+  .document {
+    width: 49.671156rem;
+    height: 70.157rem;
+  }
+  .document .page-items {
+    position: relative;
+    padding: 0;
+    list-style: none;
+  }
+  .document .page-items .page-break-after:nth-of-type(even) .dragging__leftRight {
+    left: 415px !important;
+  }
+  .document .page-items .page-break-after:nth-of-type(even) {
+    height: 11.2040729rem;
+    position: relative;
+    top: -11.64255415rem;
+  }
+  .document .page-items .page-item {
+    margin-bottom: 11.2040729rem;
+    position: relative;
+    width: 100%;
+    height: 1px;
+  }
+  .document .page-items .page-item .container .page-item__body .image {
+    height: 11.2040729rem;
+  }
+  .document .page-items .page-item .container .page-item__body .image .image__holder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .document .page-items .page-item .container .page-item__body .image .image__holder #resize {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .document .page-items .page-item .container .page-item__body .image .image__holder #resize .dragging__leftRight {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 45%;
+    height: 100%;
+    z-index: 100;
+  }
+  .document .page-items .page-item .container .page-item__body .image .image__holder #resize .dragging__leftRight .image__thumbnail {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

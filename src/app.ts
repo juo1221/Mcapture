@@ -3,6 +3,8 @@ import { Dialog } from "./component/page/dialog/dialog.js";
 import { ImageComopnent } from "./component/page/item/image.js";
 class App {
   private page: PageComopnent;
+  private saveSelectedPage: Element[] = [];
+
   constructor(appRoot: HTMLElement) {
     this.page = new PageComopnent();
     this.page.attatchTo(appRoot);
@@ -23,6 +25,44 @@ class App {
         }
       });
     });
+    const imagePerpage = document.querySelector(
+      ".imagePerpage"
+    )! as HTMLButtonElement;
+
+    imagePerpage.addEventListener("change", (e) => {
+      const target = e.target as HTMLInputElement;
+
+      if (isNaN(Number(target.value))) {
+        alert("숫자만 입력해주세요");
+        target.value = "";
+        target.focus();
+        return;
+      } else if (Number(target.value) > 6) {
+        alert("6을 초과할 수 없습니다.");
+        target.value = "";
+        target.focus();
+        return;
+      }
+
+      // 이전 정보 삭제
+      this.saveSelectedPage.forEach((selected: Element) => {
+        selected.classList.remove("page-break-after__selected");
+      });
+
+      const selectedPage: Element[] = [
+        ...document.querySelectorAll(
+          `.page-break-after:nth-of-type(${target.value}n)`
+        ),
+      ];
+
+      // 정보저장
+      this.saveSelectedPage = [...selectedPage];
+
+      selectedPage.forEach((selected: Element) => {
+        selected.classList.add("page-break-after__selected");
+      });
+    });
+
     const printBtn = document.querySelector(".print")! as HTMLButtonElement;
     printBtn.addEventListener("click", () => {
       window.print();

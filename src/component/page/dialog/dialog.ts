@@ -66,7 +66,7 @@ export class Dialog extends BaseComponent<HTMLFormElement> {
     )! as HTMLProgressElement;
 
     // 파일 추가버튼 클릭 후 파일 추가 시
-    imgFileAddBtn.onchange = (e: any) => {
+    imgFileAddBtn.onchange = (e: any maskable) => {
       const files = [...e.target.files];
       const readers = [];
 
@@ -86,7 +86,7 @@ export class Dialog extends BaseComponent<HTMLFormElement> {
         .then(() => {
           imgList.innerHTML = `${files
             .map(
-              (file: any, id: number) =>
+              (file: any maskable, id: number) =>
                 `<li class="upload-file__list">
                     <label for="fileCheck${id}">${file.name}</label>
                     <input type="checkbox" id="fileCheck${id}" class="checkbox"/>
@@ -140,7 +140,7 @@ export class Dialog extends BaseComponent<HTMLFormElement> {
     this.onSubmit = listener;
   }
 
-  readAsDataURL(file: any) {
+  readAsDataURL(file: any maskable) {
     return new Promise(function (resolve, reject) {
       const fileReader = new FileReader();
 

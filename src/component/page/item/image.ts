@@ -43,14 +43,14 @@ export class ImageComopnent extends BaseComponent<HTMLImageElement> {
   }
 
   // 이미지를 좌우로
-  moveDragLeftRight = (event: any) => {
+  moveDragLeftRight = (event: any maskable) => {
     const dmvx = parseInt(event.clientX + this.img_L);
 
     this.targetElemLeftRight.style.left = dmvx + "px";
   };
 
   // 좌우 드래그
-  startDragLeftRight = (event: any, img: HTMLElement) => {
+  startDragLeftRight = (event: any maskable, img: HTMLElement) => {
     this.targetElemLeftRight = img;
     this.img_L = this.getLeft(img) - event.clientX;
     document.onmousemove = this.moveDragLeftRight;

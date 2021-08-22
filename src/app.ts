@@ -1,10 +1,10 @@
 import { PageComopnent } from "./component/page/page.js";
 import { Dialog } from "./component/page/dialog/dialog.js";
 import { ImageComopnent } from "./component/page/item/image.js";
+
 class App {
   private page: PageComopnent;
   private saveSelectedPage: Element[] = [];
-
   constructor(appRoot: HTMLElement) {
     this.page = new PageComopnent();
     this.page.attatchTo(appRoot);
@@ -25,6 +25,7 @@ class App {
         }
       });
     });
+
     const imagePerpage = document.querySelector(
       ".imagePerpage"
     )! as HTMLButtonElement;

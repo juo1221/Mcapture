@@ -39,6 +39,19 @@
     h1 {
       margin-bottom: 0;
     }
+
+    .start {
+      background-color: #4f5165;
+      border-radius: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      color: $화이트;
+      margin-top: $마진위아래;
+    }
+
+    .start:active {
+      transform: scale(0.95) translateY(1px);
+    }
   }
 
   .main {
@@ -47,6 +60,43 @@
     flex-direction: column;
     margin-bottom: 20px;
     position: relative;
+
+    .printSetting {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      border: 5px dashed rgb(232, 160, 43);
+      width: 100%;
+      margin-bottom: $마진위아래 * 2;
+
+      .imagePerpage {
+        width: 2rem;
+        text-align: center;
+      }
+
+      .print {
+        background-color: $화이트;
+        border-radius: 10px;
+        padding: $패딩위아래 $패딩양옆;
+        cursor: pointer;
+        margin: $마진위아래 * 3;
+      }
+
+      .print:active {
+        transform: scale(0.95) translateY(1px);
+      }
+    }
+    .document::before {
+      display: block;
+      width: 1px;
+      height: $페이지높이 / 1.05;
+      background: black;
+      content: "";
+      position: absolute;
+      top: 14.5rem;
+      left: 50%;
+    }
 
     .document {
       border: 1px solid black;
@@ -70,6 +120,13 @@
           z-index: 100;
         }
 
+        .page-break-after:nth-of-type(even) #resize {
+          border-bottom: 1px dashed rgb(246, 145, 4);
+        }
+        .page-break-after:nth-of-type(odd) #resize {
+          border-bottom: 1px dashed rgb(74, 171, 0);
+        }
+
         .page-item {
           border-top: $페이지높이/160 solid salmon;
           margin-bottom: $페이지높이 * 0.1597;
@@ -89,6 +146,9 @@
               background: transparent;
               z-index: 200;
             }
+            .removeBtn:hover {
+              color: $레드;
+            }
 
             .moveBtn {
               position: absolute;
@@ -99,6 +159,9 @@
               cursor: pointer;
               background: transparent;
               z-index: 200;
+            }
+            .moveBtn:hover {
+              color: $레드;
             }
 
             .page-item__body {
@@ -117,6 +180,7 @@
                   width: 100%;
                   height: 100%;
                   cursor: default;
+                  // border-bottom: 1px dashed lightgrey;
 
                   .dragging__leftRight {
                     position: absolute;
@@ -340,7 +404,6 @@
           .page-item__body {
             .image {
               height: $페이지높이 * 0.1597;
-
               .image__holder {
                 position: relative;
                 width: 100%;

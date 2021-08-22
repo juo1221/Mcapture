@@ -1,3 +1,4 @@
+// import { PageItemComponent } from "../page.js";
 import { BaseComponent } from "./../../component.js";
 
 export class ImageComopnent extends BaseComponent<HTMLImageElement> {
@@ -36,6 +37,7 @@ export class ImageComopnent extends BaseComponent<HTMLImageElement> {
       this.startDragLeftRight(e, this.targetElemLeftRight);
     });
   }
+
   getLeft(img: HTMLElement) {
     return parseInt(img.style.left.replace("px", ""));
   }

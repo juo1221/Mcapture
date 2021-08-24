@@ -29,7 +29,7 @@ export class PageItemComponent
       ".dragging__topDown"
     )! as HTMLElement;
 
-    this.targetElemTopBottom.addEventListener("mousedown", (e: any maskable) => {
+    this.targetElemTopBottom.addEventListener("mousedown", (e: any) => {
       if (e.target.className.includes("page-item")) {
         this.startDragTopDown(e, this.targetElemTopBottom);
       }
@@ -53,13 +53,13 @@ export class PageItemComponent
   }
 
   // 이미지를 상하로
-  private moveDragTopDown = (event: any maskable) => {
+  private moveDragTopDown = (event: any) => {
     const dmvy = parseInt(event.clientY + this.img_T);
     this.targetElemTopBottom.style.top = dmvy + "px";
   };
 
   // 상하 드래그
-  private startDragTopDown = (event: any maskable, img: HTMLElement) => {
+  private startDragTopDown = (event: any, img: HTMLElement) => {
     this.targetElemTopBottom = img;
     this.img_T = this.getTop(img) - event.clientY;
 
